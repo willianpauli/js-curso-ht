@@ -1,11 +1,50 @@
-function validarFormulario() {
-    //Obter o valor do campo de texto
-    const campoTexto = document.getElementById("campoTexto").value;
+const formulario = document.getElementById('formulario');
 
-    //Verificar se o campo de texto está vazio
-    if (campoTexto === "") {
-        alert("O campo de texto não pode estar vazio!");
-        return false; // impede a submissão do formulário;
-    } 
-    return true; // permite a submissão do formulário;
+formulario.addEventListener('submit', (e) => {
+    resetarErrorMsg()
+    
+    if (!validarCamposObrigatorios()) {
+        e.preventDefault();
+    }
+    if (!compararSenhas()) {
+        e.preventDefault();
+    }
+});
+
+function validarCamposObrigatorios() {
+    let camposObrigatorios = document.querySelectorAll('.obrigatorio');
+    let camposValidos = true;
+    
+    for (let i = 0; camposObrigatorios.length > i; i++) {
+        let campo = camposObrigatorios[i];
+
+        if (campo.value === '' || campo.value === null) {
+            exibirErro(campo, 'Preencha todos os campos obrigatórios!');
+            camposValidos = false;
+        }
+    }
+    return camposValidos;
+}
+
+function compararSenhas() {
+    let senha = document.getElementById('senha');
+    let confirmarSenha = document.getElementById('confirmarSenha');
+
+    if (senha.value !== confirmarSenha.value) {
+        exibirErro(confirmarSenha, 'As senhas não são iguais!');
+        return false;
+    }
+    return true;
+}
+
+function exibirErro(elemento, mensagem) {
+    let mensagemErro = elemento.parentElement.querySelector('.msgError');
+    mensagemErro.textContent = mensagem;
+}
+
+function resetarErrorMsg() {
+    let errorMsg = document.querySelectorAll('.msgError');
+    for (let i = 0; errorMsg.length > i; i++) {
+        errorMsg[i].textContent = '';
+    }
 }
