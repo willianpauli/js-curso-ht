@@ -1,0 +1,130 @@
+:root {
+  --background: #30343f;
+  --primary: #1e2749;
+  --secondary: #273469;
+  --text-realce: #fb8500;
+  --text: #aaa;
+  --focus: #ff9f1c;
+  --safe: #45a049;
+  --input-background: #444;
+  --input-border: #555;
+  --button-background: #4caf50;
+  --white: #fff;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background);
+  margin: 0;
+  padding: 0;
+  color: var(--white);
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  background-color: var(--primary);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.images {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.boxes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.box1,
+.box2 {
+  flex: 1;
+  padding: 20px;
+  background-color: var(--secondary);
+  border-radius: 5px;
+}
+
+.box2 {
+  flex: 0.3;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text-realce);
+}
+
+.meus-dados {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+#formulario {
+  margin-top: 20px;
+}
+
+fieldset {
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+legend {
+  color: var(--text-realce);
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  flex-basis: 100px;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 98%;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid var(--input-border);
+  border-radius: 5px;
+  background-color: var(--input-background);
+  color: var(--white);
+  font-size: 16px;
+}
+
+input:focus {
+  border: 1px solid var(--focus);
+  outline: none;
+}
+
+.form-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+#btn-form {
+  padding: 10px;
+  width: 99%;
+  font-size: 16px;
+  font-weight: 600;
+  display: block;
+  margin: 0 auto;
+  background-color: var(--button-background);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#btn-form:hover {
+  background-color: var(--safe);
+}
