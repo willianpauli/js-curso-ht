@@ -9,6 +9,8 @@
       rel="stylesheet"
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
     />
+    <script src="05formulario.js" defer></script>
+    <script src="05desconto.js" defer></script>
   </head>
   <body>
     <main class="container">
@@ -50,11 +52,11 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="telefone">Telefone:</label>
+                  <label for="tel">Telefone:</label>
                   <input
                     type="number"
-                    name="telefone"
-                    id="telefone"
+                    name="tel"
+                    id="tel"
                     placeholder="Digite seu telefone"
                     required
                   />
@@ -68,7 +70,7 @@
                     type="number"
                     name="cep"
                     id="cep"
-                    placeholder="Digite seu CEP"
+                    placeholder="Digite seu CEP (apenas números)"
                     required
                   />
                 </div>
@@ -144,19 +146,23 @@
               <p>Total: 12 x R$ 100,00 ou R$ 1.200,00 à vista</p>
             </div>
             <div class="apply-discount">
-              <div class="apply-discount-header">
+              <div class="apply-discount-header" onclick="toggleDiscount()">
                 <span>Aplicar cupom de desconto</span>
-                <i id="toogle-vertical-icon" class="bx bx-chevron-down"></i>
+                <i id="toggle-icon" class="bx bxs-chevron-down"></i>
               </div>
               <div id="apply-discount-body" class="apply-discount-body">
                 <input
                   type="text"
                   id="discount-code"
-                  placeholder="Digite seu cupom"
+                  placeholder="Digite seu cupom de desconto"
                 />
-                <button>Aplicar</button>
-                <span>Mensagem de desconto</span>
-                <div id="total-price">Preço Total: R$ 1.200,00</div>
+                <button id="discount-btn" onclick="applyDiscount()">Aplicar</button>
+                <span 
+                  id="discount-message"
+                  style="display: block; margin: 10px 0 10px 0; color: gren; font-weight: bolder;">
+                  
+                </span>
+                <div id="total-price">Preço total R$1.200,00</div>
               </div>
             </div>
             <div class="icons">
