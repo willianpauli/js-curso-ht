@@ -30,21 +30,17 @@ function applyDiscount() {
 
   if (discountCupons[discountCode]) {
     const discount = discountCupons[discountCode];
-    console.log(discount);
-    let originalPrice = 1200.00;
+    let originalPrice = 1200.0;
     const newPrice = originalPrice * (1 - discount);
-
     totalPrice.innerText = `Novo total de R$ ${newPrice.toFixed(2)}`;
     discountMessage.innerText = `Desconto de ${discount * 100}% aplicado!`;
     discountMessage.style.color = "green";
-
     localStorage.setItem("discount", discount);
-
     document.getElementById("discount-code").value = "";
   } else {
     discountMessage.innerText = "Cupom inválido!";
     discountMessage.style.color = "red";
     totalPrice.innerHTML = `Preço total de R$1.200,00`;
-    localStorage.removeItem("discount")
+    localStorage.removeItem("discount");
   }
 }
